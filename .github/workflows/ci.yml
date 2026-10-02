@@ -1,0 +1,54 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Typecheck, Lint, Test, Security & Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit Tests
+        run: npm run test
+
+      - name: Build Application
+        env:
+          NEXT_PUBLIC_APP_URL: http://localhost:3000
+          NEXT_PUBLIC_APP_NAME: FirstBuild Engine
+          NEXT_PUBLIC_SUPABASE_URL: https://dummy-supabase-project.supabase.co
+          NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: dummy-anon-key
+          SUPABASE_SECRET_KEY: dummy-secret-key-for-build
+          SESSION_SECRET: dummy-session-secret-at-least-32-chars-long
+          CRON_SECRET: dummy-cron-secret
+          ADMIN_EMAILS: admin@test.com
+          IP_HASH_SALT: dummy-ip-salt-at-least-16-chars
+          EMAIL_FROM_ADDRESS: test@test.com
+        run: npm run build
+
+      - name: Client Bundle Secret Leak Check
+        run: npm run security:check-bundle
+
+      - name: Dependency Vulnerability Audit
+        run: npm audit --audit-level=high

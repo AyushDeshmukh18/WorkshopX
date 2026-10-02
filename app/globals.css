@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* NxtWave Official Design System: Clean, high-contrast, modern SaaS */
+  --background: #fbfaf8;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --primary: #0b63e5; /* Official NxtWave Royal Brand Blue */
+  --primary-hover: #0950bb;
+  --primary-foreground: #ffffff;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #0284c7;
+  --success: #10b981;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0b0f17;
+    --foreground: #f8fafc;
+    --card: #121722;
+    --card-foreground: #f8fafc;
+    --border: #1e293b;
+    --input: #1e293b;
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --primary-foreground: #ffffff;
+    --muted: #172033;
+    --muted-foreground: #94a3b8;
+    --accent: #38bdf8;
+    --success: #34d399;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background-color: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Accessible focus ring */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Refined custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* Glass panel utility */
+.glass-surface {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .glass-surface {
+    background-color: rgba(13, 15, 18, 0.85);
+  }
+}
+
+/* Subtle elevation card */
+.warm-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.warm-card:hover {
+  border-color: #d1ccbf;
+}
+
+@media (prefers-color-scheme: dark) {
+  .warm-card:hover {
+    border-color: #323946;
+  }
+}
+
+/* Page entrance snappy animation */
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: pageFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Warm input & interactive styles */
+input, select, textarea {
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+button {
+  transition: transform 0.1s ease, opacity 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.985);
+}
+

@@ -1,0 +1,23 @@
+name: 5-Minute Outbox Scheduler
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  tick:
+    name: Execute Heartbeat Tick
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger /api/cron/tick
+        run: |
+          STATUS=$(curl -s -o response.json -w "%{http_code}" -X POST "${{ secrets.APP_URL }}/api/cron/tick" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            -H "Content-Type: application/json")
+          echo "HTTP Status: $STATUS"
+          cat response.json
+          if [ "$STATUS" -ne 200 ]; then
+            echo "Tick execution returned non-200 status: $STATUS"
+            exit 1
+          fi
