@@ -31,7 +31,9 @@ export async function POST(req: NextRequest) {
     const salt = process.env.IP_HASH_SALT || 'firstbuild-salt-fallback-value-32';
     const { otp } = await createEmailOtp(normalized, 'admin', salt);
 
-    console.log(`[Admin Authentication] 6-digit verification code for ${normalized}: ${otp}`);
+    if (process.env.NODE_ENV !== 'production') {
+      console.log(`[Admin Authentication] 6-digit verification code for ${normalized}: ${otp}`);
+    }
 
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
     const emailData = renderOtpEmail(otp, { appUrl });

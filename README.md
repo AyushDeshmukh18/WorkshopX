@@ -100,3 +100,52 @@ graph TD
 - [docs/AI_DECISION_LOG.md](docs/AI_DECISION_LOG.md): Architectural decisions and pre-loaded rejections.
 - [docs/GROWTH_PLAN.md](docs/GROWTH_PLAN.md): Campaign math, channel strategy, and conversion models.
 - [docs/DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md): 3-minute video recording walkthrough.
+
+---
+
+## Vercel Deployment Guide
+
+### 1. Import Repository
+1. Go to [vercel.com/new](https://vercel.com/new)
+2. Import `AyushDeshmukh18/WorkshopX` from GitHub
+3. Framework: **Next.js** (auto-detected), Root Directory: `./`
+
+### 2. Required Environment Variables
+
+Set all of these in **Vercel → Project → Settings → Environment Variables**:
+
+| Variable | Required | Example / Notes |
+|---|---|---|
+| `NEXT_PUBLIC_APP_URL` | ✅ | `https://workshopx.vercel.app` |
+| `NEXT_PUBLIC_APP_NAME` | ✅ | `NxtWave AI Workshop` |
+| `NEXT_PUBLIC_SUPABASE_URL` | ✅ | From Supabase project settings |
+| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | ✅ | Supabase `anon` public key |
+| `SUPABASE_SECRET_KEY` | ✅ | Supabase `service_role` key |
+| `SESSION_SECRET` | ✅ | 32+ random characters |
+| `CRON_SECRET` | ✅ | 8+ random characters |
+| `ADMIN_EMAILS` | ✅ | `deshmukhajd2005@gmail.com` |
+| `IP_HASH_SALT` | ✅ | 16+ random characters |
+| `EMAIL_FROM_ADDRESS` | ✅ | Verified sender email |
+| `EMAIL_PROVIDER` | ✅ | `brevo` or `resend` |
+| `BREVO_API_KEY` | ⚡ | If `EMAIL_PROVIDER=brevo` |
+| `RESEND_API_KEY` | ⚡ | If `EMAIL_PROVIDER=resend` |
+| `GEMINI_API_KEY` | ⚡ | From Google AI Studio |
+| `GROQ_API_KEY` | ⚡ | From console.groq.com |
+| `TELEGRAM_BOT_TOKEN` | Optional | Admin alert notifications |
+| `TELEGRAM_ADMIN_CHAT_ID` | Optional | Admin Telegram chat ID |
+| `COMMUNITY_INVITE_URL` | Optional | WhatsApp / Discord link |
+
+### 3. Deploy
+Click **Deploy**. Build runs `npm run build` (~90s, zero errors confirmed).
+
+### 4. Post-Deploy Checklist
+- [ ] `/` → Landing page loads with registration form
+- [ ] `/admin/login` → Enter `deshmukhajd2005@gmail.com` → OTP arrives
+- [ ] Register test user → OTP arrives → `/dashboard/me` shows seat
+- [ ] `/submit` → Project audit pipeline responds
+- [ ] `/verify/TEST01` → Certificate page renders correctly
+- [ ] Cron jobs visible under **Vercel → Settings → Crons**
+
+### 5. Custom Domain (Optional)
+Vercel → Settings → Domains → Add domain → Update DNS → Update `NEXT_PUBLIC_APP_URL`.
+
