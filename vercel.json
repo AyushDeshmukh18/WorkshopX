@@ -6,10 +6,6 @@
     {
       "path": "/api/cron/digest",
       "schedule": "30 14 * * *"
-    },
-    {
-      "path": "/api/cron/tick",
-      "schedule": "0 * * * *"
     }
   ],
   "functions": {

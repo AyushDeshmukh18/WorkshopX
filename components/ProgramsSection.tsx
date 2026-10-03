@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function ProgramsSection() {
   return (
-    <section id="programs" className="py-16 scroll-mt-20">
+    <section id="programs" className="py-16 sm:py-20 bg-[#f8fafc] dark:bg-[#0c111c] border-b border-neutral-200 dark:border-neutral-800/80 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-14">
@@ -74,7 +74,7 @@ export default function ProgramsSection() {
                 Claim Free Seat &rarr;
               </a>
               <a
-                href="#blueprints"
+                href="/tools#blueprints"
                 className="w-full inline-block text-center border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-xs py-2 rounded-lg transition-colors"
               >
                 Explore Blueprints

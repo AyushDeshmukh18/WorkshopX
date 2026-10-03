@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getSession } from '@/lib/auth/session';
+import ReferralTrackerSection from '@/components/ReferralTrackerSection';
 
 export default async function StudentDashboardPage() {
   const session = await getSession();
@@ -116,97 +117,9 @@ export default async function StudentDashboardPage() {
         </div>
       </div>
 
-      {/* Referral & Milestone Progress Card */}
-      <div className="warm-card rounded-lg p-6 sm:p-8 mb-8 shadow-sm">
-        <h2 className="text-base font-bold text-neutral-900 dark:text-neutral-100 mb-1">
-          Peer Referral Program
-        </h2>
-        <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-4 leading-relaxed">
-          Invite batchmates from your college to unlock priority project review and campus leadership recognition.
-        </p>
-
-        {/* Copyable Link Field */}
-        <div className="flex items-center gap-2 mb-6">
-          <input
-            type="text"
-            readOnly
-            value={referralLink}
-            className="flex-1 bg-[#fbfaf7] dark:bg-[#15181f] border border-[#e8e5de] dark:border-[#232833] rounded px-3 py-2 text-xs font-mono text-neutral-900 dark:text-neutral-100"
-          />
-        </div>
-
-        {/* Share Buttons */}
-        <div className="flex flex-wrap items-center gap-3 mb-8">
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-neutral-900 hover:bg-neutral-800 text-white dark:bg-neutral-100 dark:hover:bg-neutral-200 dark:text-neutral-900 text-xs font-semibold px-4 py-2.5 rounded transition-colors inline-flex items-center gap-2"
-          >
-            Share on WhatsApp
-          </a>
-          <a
-            href={linkedinUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border border-[#e8e5de] dark:border-[#232833] bg-[#fbfaf7] dark:bg-[#15181f] hover:bg-[#ece8df] text-neutral-900 dark:text-neutral-100 text-xs font-semibold px-4 py-2.5 rounded transition-colors inline-flex items-center gap-2"
-          >
-            Share on LinkedIn
-          </a>
-        </div>
-
-        {/* Milestone Tracker */}
-        <div className="border-t border-[#e8e5de] dark:border-[#232833] pt-6">
-          <div className="flex items-center justify-between text-xs mb-2">
-            <span className="font-mono font-bold text-neutral-900 dark:text-neutral-100">
-              REFERRAL PROGRESS
-            </span>
-            <span className="font-mono text-neutral-500">
-              {verifiedRefs} VERIFIED OF 10 GOAL
-            </span>
-          </div>
-
-          <div className="w-full bg-[#e8e5de] dark:bg-[#232833] h-2 rounded-full overflow-hidden mb-6">
-            <div
-              className="bg-blue-600 h-full transition-all duration-300"
-              style={{ width: `${Math.min((verifiedRefs / 10) * 100, 100)}%` }}
-            ></div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div
-              className={`border p-4 rounded-lg text-xs transition-colors ${
-                verifiedRefs >= 3
-                  ? 'border-blue-500 bg-blue-50/50 dark:bg-blue-950/40 text-blue-900 dark:text-blue-200'
-                  : 'border-[#e8e5de] dark:border-[#232833] bg-[#fbfaf7] dark:bg-[#15181f] text-neutral-600 dark:text-neutral-400'
-              }`}
-            >
-              <div className="flex items-center justify-between font-mono font-bold mb-1">
-                <span>TIER 1: 3 REFERRALS</span>
-                <span className={verifiedRefs >= 3 ? 'text-blue-700 dark:text-blue-400' : 'text-neutral-400'}>
-                  {verifiedRefs >= 3 ? '[UNLOCKED]' : `${3 - verifiedRefs} MORE`}
-                </span>
-              </div>
-              <p>Priority live code review and instructor feedback during the session.</p>
-            </div>
-
-            <div
-              className={`border p-4 rounded-lg text-xs transition-colors ${
-                verifiedRefs >= 10
-                  ? 'border-blue-500 bg-blue-50/50 dark:bg-blue-950/40 text-blue-900 dark:text-blue-200'
-                  : 'border-[#e8e5de] dark:border-[#232833] bg-[#fbfaf7] dark:bg-[#15181f] text-neutral-600 dark:text-neutral-400'
-              }`}
-            >
-              <div className="flex items-center justify-between font-mono font-bold mb-1">
-                <span>TIER 2: 10 REFERRALS</span>
-                <span className={verifiedRefs >= 10 ? 'text-blue-700 dark:text-blue-400' : 'text-neutral-400'}>
-                  {verifiedRefs >= 10 ? '[UNLOCKED]' : `${10 - verifiedRefs} MORE`}
-                </span>
-              </div>
-              <p>Official Campus Captain Leadership Certificate and special placement honors.</p>
-            </div>
-          </div>
-        </div>
+      {/* Advanced Referral & Milestone Progress Section */}
+      <div className="mb-8">
+        <ReferralTrackerSection initialCode={referralCode} />
       </div>
     </div>
   );

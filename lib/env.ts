@@ -17,6 +17,8 @@ const serverSchema = z.object({
   SUPABASE_SECRET_KEY: z.string().min(1, 'SUPABASE_SECRET_KEY is required'),
 
   // AI Providers
+  OPENROUTER_API_KEY: z.string().optional(),
+  OPENROUTER_MODEL: z.string().min(1).default('google/gemini-3.8-flash'),
   GEMINI_API_KEY: z.string().optional(),
   GEMINI_MODEL: z.string().min(1).default('gemini-3.1-flash-lite'),
   GROQ_API_KEY: z.string().optional(),

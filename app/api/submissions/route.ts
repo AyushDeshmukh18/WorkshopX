@@ -111,6 +111,13 @@ export async function POST(req: NextRequest) {
       tips: evalResult.tips,
       passed: evalResult.passed,
       evaluation_mode: evalResult.evaluation_mode,
+      executive_summary: evalResult.executive_summary,
+      key_strengths: evalResult.key_strengths,
+      critical_weaknesses: evalResult.critical_weaknesses,
+      placement_readiness_verdict: evalResult.placement_readiness_verdict,
+      viva_defense_question: evalResult.viva_defense_question,
+      viva_model_answer: evalResult.viva_model_answer,
+      detected_tech_stack: evalResult.detected_tech_stack,
       certificate_id: certId,
       certificate_url: certId ? `/verify/${certId}` : null,
       pdf_url: certId ? `/api/certificate/${certId}` : null,
@@ -118,9 +125,10 @@ export async function POST(req: NextRequest) {
     });
   } catch (err: unknown) {
     console.error('[API /api/submissions] Error during evaluation:', err);
-    return NextResponse.json(
-      { error: 'Project evaluation pipeline failed. Please check inputs and retry.' },
-      { status: 500 }
-    );
+    const errorMessage =
+      err instanceof Error
+        ? err.message
+        : 'Project evaluation pipeline failed. Please check inputs and retry.';
+    return NextResponse.json({ error: errorMessage }, { status: 400 });
   }
 }

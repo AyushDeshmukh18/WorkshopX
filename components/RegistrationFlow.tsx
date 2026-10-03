@@ -62,6 +62,7 @@ export default function RegistrationFlow() {
   const [skillLevel, setSkillLevel] = useState<'beginner' | 'intermediate' | 'advanced'>('beginner');
   const [interest, setInterest] = useState<'AI' | 'WEB' | 'DATA' | 'MOBILE' | 'EMBEDDED'>('AI');
   const [language, setLanguage] = useState<'en' | 'hi' | 'te'>('en');
+  const [referralCode, setReferralCode] = useState('');
   const [consent, setConsent] = useState(false);
   const [consentMarketing, setConsentMarketing] = useState(false);
 
@@ -72,6 +73,22 @@ export default function RegistrationFlow() {
   // Confirmed Result
   const [confirmedData, setConfirmedData] = useState<ConfirmedSeat | null>(null);
   const [copySuccess, setCopySuccess] = useState(false);
+
+  // Auto-detect referral code from URL query param ?ref= or cookie
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const refParam = params.get('ref');
+      if (refParam) {
+        setReferralCode(refParam.toUpperCase().trim());
+      } else {
+        const match = document.cookie.match(/(?:^|;\s*)ref=([^;]+)/);
+        if (match && match[1]) {
+          setReferralCode(decodeURIComponent(match[1]).toUpperCase().trim());
+        }
+      }
+    }
+  }, []);
 
   // Listen to blueprint selections from the BlueprintFlow component
   useEffect(() => {
@@ -118,6 +135,7 @@ export default function RegistrationFlow() {
           language,
           consent: true,
           consent_marketing: consentMarketing,
+          referral_code: referralCode.trim() || undefined,
         }),
       });
 
@@ -329,6 +347,26 @@ export default function RegistrationFlow() {
                 <option value="te">Telugu</option>
               </select>
             </div>
+          </div>
+
+          {/* Referral Code (Optional) */}
+          <div className="pt-2">
+            <label className="block text-xs font-mono uppercase text-neutral-700 dark:text-neutral-300 mb-1.5 font-medium flex items-center justify-between">
+              <span>Referral Code (Optional)</span>
+              {referralCode && (
+                <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold font-mono">
+                  &bull; CODE DETECTED
+                </span>
+              )}
+            </label>
+            <input
+              type="text"
+              placeholder="e.g. FB8X91K2"
+              value={referralCode}
+              onChange={(e) => setReferralCode(e.target.value.toUpperCase())}
+              maxLength={16}
+              className="w-full text-xs font-mono px-3 py-2 border border-[#dcd8cf] dark:border-[#2b313d] rounded bg-[#fbfaf7] dark:bg-[#12151b] text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 focus:outline-none focus:border-blue-600 uppercase"
+            />
           </div>
 
           {/* Legal Disclosures (DPDP Act 2023) */}

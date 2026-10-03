@@ -4,7 +4,7 @@ import 'server-only';
 const memoryUsage = new Map<string, number>();
 
 export async function checkAndIncrementBudget(
-  provider: 'gemini' | 'groq',
+  provider: 'openrouter' | 'gemini' | 'groq',
   dailyMax: number = 1000
 ): Promise<boolean> {
   const today = new Date().toISOString().split('T')[0];

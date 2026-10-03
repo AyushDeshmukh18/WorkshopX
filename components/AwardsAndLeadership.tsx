@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function AwardsAndLeadership() {
   return (
-    <section className="py-16 border-t border-neutral-200 dark:border-neutral-800 bg-[#f8f9fa] dark:bg-[#0a0d14]">
+    <section id="awards" className="py-16 sm:py-20 border-b border-neutral-200 dark:border-neutral-800/80 bg-white dark:bg-[#080c14] scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Accreditations Bar */}
         <div className="text-center mb-16">
