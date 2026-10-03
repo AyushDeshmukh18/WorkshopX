@@ -88,11 +88,11 @@ export default function CaptainKitPage({
             </pre>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3">
             <button
               type="button"
               onClick={handleCopy}
-              className="bg-neutral-900 hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-neutral-200 text-white dark:text-neutral-900 text-xs font-semibold px-4 py-2.5 rounded-md transition-colors"
+              className="w-full sm:w-auto text-center bg-neutral-900 hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-neutral-200 text-white dark:text-neutral-900 text-xs font-semibold px-4 py-2.5 rounded-md transition-colors min-h-[40px]"
             >
               {copied ? '✓ Copied to Clipboard!' : 'Copy Announcement Message'}
             </button>
@@ -100,7 +100,7 @@ export default function CaptainKitPage({
               href={`https://wa.me/?text=${encodeURIComponent(currentMsg.whatsappMessage)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-[#e8e5de] dark:border-[#232833] bg-[#fbfaf7] dark:bg-[#15181f] hover:bg-[#ece8df] text-neutral-900 dark:text-neutral-100 text-xs font-semibold px-4 py-2.5 rounded-md transition-colors"
+              className="w-full sm:w-auto text-center border border-[#e8e5de] dark:border-[#232833] bg-[#fbfaf7] dark:bg-[#15181f] hover:bg-[#ece8df] text-neutral-900 dark:text-neutral-100 text-xs font-semibold px-4 py-2.5 rounded-md transition-colors min-h-[40px] flex items-center justify-center"
             >
               Forward Directly on WhatsApp
             </a>

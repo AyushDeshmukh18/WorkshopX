@@ -41,7 +41,7 @@ export default function NxtWaveFooter() {
             </span>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 shrink-0 w-full sm:w-auto">
             <Link
               href="/tools"
               className="text-xs font-mono font-semibold text-blue-600 dark:text-blue-400 hover:underline px-3 py-1.5"
@@ -50,7 +50,7 @@ export default function NxtWaveFooter() {
             </Link>
             <a
               href="/#register"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs font-mono uppercase tracking-wider shadow-xs transition-all"
+              className="w-full sm:w-auto justify-center inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs font-mono uppercase tracking-wider shadow-xs transition-all min-h-[40px]"
             >
               <span>Claim Free Seat</span>
               <ArrowRight className="w-3.5 h-3.5" />

@@ -427,7 +427,7 @@ export default function RegistrationFlow() {
               value={otpCode}
               onChange={(e) => setOtpCode(e.target.value.replace(/\D/g, ''))}
               placeholder="000000"
-              className="w-full text-center tracking-[0.5em] text-2xl font-mono px-4 py-3 border border-[#dcd8cf] dark:border-[#2b313d] rounded bg-[#fbfaf7] dark:bg-[#12151b] text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-1 focus:ring-blue-600"
+              className="w-full text-center tracking-[0.25em] sm:tracking-[0.5em] text-xl sm:text-2xl font-mono px-3 sm:px-4 py-3 border border-[#dcd8cf] dark:border-[#2b313d] rounded bg-[#fbfaf7] dark:bg-[#12151b] text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-1 focus:ring-blue-600"
             />
             <p className="text-[11px] text-neutral-500 text-center mt-2">
               Valid for 10 minutes. Check your spam folder if you do not see it in 60 seconds.

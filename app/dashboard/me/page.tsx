@@ -110,7 +110,7 @@ export default async function StudentDashboardPage() {
           <Link
             href="/live"
             prefetch={true}
-            className="bg-neutral-900 hover:bg-neutral-800 text-white dark:bg-neutral-100 dark:hover:bg-neutral-200 dark:text-neutral-900 text-xs font-semibold px-4 py-2 rounded transition-colors whitespace-nowrap"
+            className="w-full sm:w-auto text-center bg-neutral-900 hover:bg-neutral-800 text-white dark:bg-neutral-100 dark:hover:bg-neutral-200 dark:text-neutral-900 text-xs font-semibold px-4 py-2.5 rounded transition-colors whitespace-nowrap min-h-[40px] flex items-center justify-center"
           >
             Launch Dev Checklist
           </Link>

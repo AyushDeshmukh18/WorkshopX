@@ -285,8 +285,8 @@ function SubmitForm() {
               <h3 className="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-3 font-bold">
                 100-Point Rubric Performance Matrix
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
-                <div className="p-3.5 border border-[#e8e5de] dark:border-[#232833] rounded-xl bg-[#fbfaf7] dark:bg-[#131926]">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3">
+                <div className="p-3 sm:p-3.5 border border-[#e8e5de] dark:border-[#232833] rounded-xl bg-[#fbfaf7] dark:bg-[#131926]">
                   <span className="text-[10px] font-mono uppercase text-neutral-500 block font-semibold">Works Deployed</span>
                   <span className="text-lg font-mono font-bold text-neutral-900 dark:text-white">
                     {result.score_breakdown.works_deployed} <span className="text-xs text-neutral-400">/ 30</span>
@@ -296,7 +296,7 @@ function SubmitForm() {
                   </div>
                 </div>
 
-                <div className="p-3.5 border border-[#e8e5de] dark:border-[#232833] rounded-xl bg-[#fbfaf7] dark:bg-[#131926]">
+                <div className="p-3 sm:p-3.5 border border-[#e8e5de] dark:border-[#232833] rounded-xl bg-[#fbfaf7] dark:bg-[#131926]">
                   <span className="text-[10px] font-mono uppercase text-neutral-500 block font-semibold">AI Integration</span>
                   <span className="text-lg font-mono font-bold text-neutral-900 dark:text-white">
                     {result.score_breakdown.uses_ai} <span className="text-xs text-neutral-400">/ 25</span>
@@ -306,7 +306,7 @@ function SubmitForm() {
                   </div>
                 </div>
 
-                <div className="p-3.5 border border-[#e8e5de] dark:border-[#232833] rounded-xl bg-[#fbfaf7] dark:bg-[#131926]">
+                <div className="p-3 sm:p-3.5 border border-[#e8e5de] dark:border-[#232833] rounded-xl bg-[#fbfaf7] dark:bg-[#131926]">
                   <span className="text-[10px] font-mono uppercase text-neutral-500 block font-semibold">Originality</span>
                   <span className="text-lg font-mono font-bold text-neutral-900 dark:text-white">
                     {result.score_breakdown.originality} <span className="text-xs text-neutral-400">/ 15</span>
@@ -316,7 +316,7 @@ function SubmitForm() {
                   </div>
                 </div>
 
-                <div className="p-3.5 border border-[#e8e5de] dark:border-[#232833] rounded-xl bg-[#fbfaf7] dark:bg-[#131926]">
+                <div className="p-3 sm:p-3.5 border border-[#e8e5de] dark:border-[#232833] rounded-xl bg-[#fbfaf7] dark:bg-[#131926]">
                   <span className="text-[10px] font-mono uppercase text-neutral-500 block font-semibold">Documentation</span>
                   <span className="text-lg font-mono font-bold text-neutral-900 dark:text-white">
                     {result.score_breakdown.readme} <span className="text-xs text-neutral-400">/ 15</span>
@@ -326,7 +326,7 @@ function SubmitForm() {
                   </div>
                 </div>
 
-                <div className="p-3.5 border border-[#e8e5de] dark:border-[#232833] rounded-xl bg-[#fbfaf7] dark:bg-[#131926]">
+                <div className="col-span-2 sm:col-span-1 p-3 sm:p-3.5 border border-[#e8e5de] dark:border-[#232833] rounded-xl bg-[#fbfaf7] dark:bg-[#131926]">
                   <span className="text-[10px] font-mono uppercase text-neutral-500 block font-semibold">Code Structure</span>
                   <span className="text-lg font-mono font-bold text-neutral-900 dark:text-white">
                     {result.score_breakdown.code_structure} <span className="text-xs text-neutral-400">/ 15</span>

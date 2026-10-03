@@ -259,7 +259,7 @@ function LiveRoom() {
                         : 'border-[#e8e5de] dark:border-[#232833] bg-[#fbfaf7]/60 dark:bg-[#15181f]/40'
                     }`}
                   >
-                    <div className="flex items-start justify-between gap-4">
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
                       <div className="flex items-start gap-3">
                         <span
                           className={`font-mono text-xs px-2.5 py-1 rounded font-bold shrink-0 ${
@@ -289,7 +289,7 @@ function LiveRoom() {
                       <button
                         type="button"
                         onClick={() => toggleMilestone(milestone.id)}
-                        className={`text-xs font-mono px-3.5 py-1.5 rounded transition-all whitespace-nowrap shrink-0 ${
+                        className={`w-full sm:w-auto text-center text-xs font-mono px-3.5 py-2 rounded transition-all whitespace-nowrap shrink-0 min-h-[36px] ${
                           isDone
                             ? 'bg-blue-700 hover:bg-blue-800 text-white font-semibold'
                             : 'border border-[#e8e5de] dark:border-[#232833] hover:bg-[#ece8df] dark:hover:bg-[#1f242d] text-neutral-700 dark:text-neutral-300'

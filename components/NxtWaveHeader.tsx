@@ -74,39 +74,38 @@ export default function NxtWaveHeader() {
   return (
     <>
       {/* Top Notification Announcement Bar */}
-      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white text-[11px] sm:text-xs py-2 px-4 border-b border-blue-700/40">
-        <div className="max-w-7xl mx-auto flex items-center justify-center gap-2.5 flex-wrap text-center">
-          <span className="whitespace-nowrap inline-flex items-center gap-1.5 bg-blue-500/30 text-blue-200 px-2 py-0.5 rounded font-mono text-[10px] uppercase font-bold border border-blue-400/30">
+      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white text-[11px] sm:text-xs py-1.5 sm:py-2 px-3 sm:px-4 border-b border-blue-700/40">
+        <div className="max-w-7xl mx-auto flex items-center justify-center gap-1.5 sm:gap-2.5 flex-wrap text-center">
+          <span className="inline-flex items-center gap-1.5 bg-blue-500/30 text-blue-200 px-1.5 sm:px-2 py-0.5 rounded font-mono text-[9px] sm:text-[10px] uppercase font-bold border border-blue-400/30 shrink-0">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-            LIVE TECHNICAL WORKSHOP
+            LIVE WORKSHOP
           </span>
-          <span className="whitespace-nowrap font-medium text-neutral-200">
-            Build Your First AI Project in 60 Minutes &bull; Limited 500 Verified Seats.
+          <span className="font-medium text-neutral-200 text-[11px] sm:text-xs">
+            Build Your First AI Project in 60 Mins &bull; 500 Seats
           </span>
           <a
             href="/#register"
-            className="whitespace-nowrap inline-flex items-center gap-1 underline font-bold text-cyan-300 hover:text-white transition-colors"
+            className="inline-flex items-center gap-1 underline font-bold text-cyan-300 hover:text-white transition-colors shrink-0"
           >
-            <span>Claim Free Seat</span>
-            <span>&rarr;</span>
+            <span>Claim Seat &rarr;</span>
           </a>
         </div>
       </div>
 
       {/* Main Navigation Header */}
       <header className="sticky top-0 z-50 bg-white/95 dark:bg-[#080c14]/95 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 transition-colors shadow-2xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 h-16 flex items-center justify-between gap-2 sm:gap-3">
           {/* Brand Logo & CCBP 4.0 Badge */}
-          <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
+          <Link href="/" className="flex items-center gap-1.5 sm:gap-2.5 shrink-0 group">
             <div className="flex items-baseline">
-              <span className="text-xl sm:text-2xl font-black tracking-tight text-neutral-900 dark:text-white">
+              <span className="text-lg sm:text-2xl font-black tracking-tight text-neutral-900 dark:text-white">
                 NXT<span className="text-blue-600 dark:text-blue-400">WAVE</span>
               </span>
-              <span className="text-[9px] font-bold text-neutral-400 dark:text-neutral-500 ml-0.5">
+              <span className="text-[8px] sm:text-[9px] font-bold text-neutral-400 dark:text-neutral-500 ml-0.5">
                 TM
               </span>
             </div>
-            <span className="whitespace-nowrap text-[10px] font-mono font-bold uppercase tracking-wider text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/80 px-2 py-0.5 rounded border border-blue-200 dark:border-blue-800">
+            <span className="whitespace-nowrap text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/80 px-1.5 sm:px-2 py-0.5 rounded border border-blue-200 dark:border-blue-800">
               CCBP 4.0
             </span>
           </Link>
@@ -549,7 +548,7 @@ export default function NxtWaveHeader() {
           </nav>
 
           {/* Right Action CTAs */}
-          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
             <Link
               href="/submit"
               className={`hidden 2xl:inline-flex whitespace-nowrap items-center px-2.5 py-1.5 text-xs font-medium rounded-md border transition-colors ${
@@ -563,7 +562,7 @@ export default function NxtWaveHeader() {
 
             <Link
               href="/dashboard/me"
-              className={`whitespace-nowrap inline-flex items-center px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors ${
+              className={`hidden sm:inline-flex whitespace-nowrap items-center px-2.5 sm:px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors ${
                 isDashboard
                   ? 'bg-blue-50 dark:bg-blue-950/60 border-blue-300 dark:border-blue-700 text-blue-700 dark:text-blue-300'
                   : 'border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:text-blue-600 hover:border-blue-300 bg-white dark:bg-[#121622]'
@@ -574,16 +573,17 @@ export default function NxtWaveHeader() {
 
             <a
               href="/#register"
-              className="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 hover:bg-blue-700 text-white shadow-xs transition-colors"
+              className="hidden min-[380px]:inline-flex whitespace-nowrap items-center justify-center px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs font-semibold rounded-lg bg-blue-600 hover:bg-blue-700 text-white shadow-xs transition-colors shrink-0"
             >
-              Book Free Seat
+              <span className="hidden sm:inline">Book Free Seat</span>
+              <span className="sm:hidden">Claim Seat</span>
             </a>
 
             {/* Mobile / Tablet Menu Button */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-md text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:outline-none"
+              className="lg:hidden p-2 rounded-md text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:outline-none min-w-[40px] min-h-[40px] flex items-center justify-center shrink-0"
               aria-label="Toggle navigation menu"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -610,13 +610,22 @@ export default function NxtWaveHeader() {
                   FREE SEAT
                 </span>
               </div>
-              <a
-                href="/#register"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-center w-full py-2 bg-blue-600 text-white font-bold text-xs rounded-lg uppercase tracking-wide"
-              >
-                Claim Free Seat (500 Capped) &rarr;
-              </a>
+              <div className="grid grid-cols-2 gap-2">
+                <a
+                  href="/#register"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-center py-2 bg-blue-600 text-white font-bold text-xs rounded-lg uppercase tracking-wide hover:bg-blue-700 transition-colors"
+                >
+                  Claim Seat &rarr;
+                </a>
+                <Link
+                  href="/dashboard/me"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-center py-2 bg-white dark:bg-[#121622] text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700 font-bold text-xs rounded-lg uppercase tracking-wide hover:border-blue-500 transition-colors"
+                >
+                  Student Pass
+                </Link>
+              </div>
             </div>
 
             {/* AI Placement Suite Section */}

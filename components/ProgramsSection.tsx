@@ -264,19 +264,23 @@ export default function ProgramsSection() {
         </div>
 
         {/* Comparison Matrix: Traditional College vs. NxtWave CCBP 4.0 */}
-        <div className="bg-white dark:bg-[#121620] border border-neutral-200 dark:border-neutral-800 rounded-2xl p-6 sm:p-10 shadow-xs mb-16 overflow-x-auto">
-          <div className="text-center max-w-2xl mx-auto mb-8">
+        <div className="bg-white dark:bg-[#121620] border border-neutral-200 dark:border-neutral-800 rounded-2xl p-4 sm:p-10 shadow-xs mb-16 overflow-hidden">
+          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
             <span className="text-xs font-mono font-bold uppercase text-blue-600 dark:text-blue-400">
               OBJECTIVE COMPARISON
             </span>
             <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-900 dark:text-white mt-1">
               Choose the Path That Makes You Employable
             </h3>
+            <p className="text-[11px] text-neutral-500 mt-1.5 sm:hidden font-mono">
+              &larr; Swipe horizontally to view full matrix &rarr;
+            </p>
           </div>
 
-          <table className="w-full text-xs text-left min-w-[550px]">
-            <thead>
-              <tr className="border-b border-neutral-200 dark:border-neutral-800 text-neutral-400 uppercase font-mono text-[11px]">
+          <div className="overflow-x-auto w-full pb-2 scrollbar-thin">
+            <table className="w-full text-xs text-left min-w-[500px]">
+              <thead>
+                <tr className="border-b border-neutral-200 dark:border-neutral-800 text-neutral-400 uppercase font-mono text-[11px]">
                 <th className="py-3 px-4">Evaluation Criteria</th>
                 <th className="py-3 px-4 text-neutral-500">Traditional College Degree</th>
                 <th className="py-3 px-4 text-blue-600 dark:text-blue-400 font-bold">NxtWave CCBP 4.0 Ecosystem</th>
@@ -320,6 +324,7 @@ export default function ProgramsSection() {
               </tr>
             </tbody>
           </table>
+          </div>
         </div>
       </div>
     </section>

@@ -248,12 +248,12 @@ export default async function VerifyCertificatePage({
         </div>
 
         {/* Action Buttons: Add to LinkedIn & Download PDF */}
-        <div className="flex flex-wrap items-center gap-3 pt-6 border-t border-neutral-200 dark:border-neutral-800">
+        <div className="flex flex-col sm:flex-row items-center gap-3 pt-6 border-t border-neutral-200 dark:border-neutral-800">
           <a
             href={linkedInCertUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-semibold px-5 py-3 rounded transition-colors inline-flex items-center gap-2"
+            className="w-full sm:w-auto text-center justify-center bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-semibold px-5 py-3 rounded transition-colors inline-flex items-center gap-2 min-h-[44px]"
           >
             Add Credential to LinkedIn Profile &rarr;
           </a>
@@ -262,7 +262,7 @@ export default async function VerifyCertificatePage({
             href={pdfDownloadUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 hover:bg-neutral-50 text-neutral-900 dark:text-neutral-100 text-xs font-semibold px-5 py-3 rounded transition-colors inline-flex items-center gap-2"
+            className="w-full sm:w-auto text-center justify-center border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 hover:bg-neutral-50 text-neutral-900 dark:text-neutral-100 text-xs font-semibold px-5 py-3 rounded transition-colors inline-flex items-center gap-2 min-h-[44px]"
           >
             Download High-Resolution PDF Credential
           </a>
@@ -270,9 +270,9 @@ export default async function VerifyCertificatePage({
       </div>
 
       {/* Footer Info */}
-      <div className="text-center text-xs text-neutral-500 space-y-1">
+      <div className="text-center text-xs text-neutral-500 space-y-1 px-2">
         <p>This credential was issued under the NxtWave CCBP 4.0 Technical Education Initiative cryptographic verification protocol.</p>
-        <p>Permanent ledger verification record maintained at <span className="font-mono">{certVerifyUrl}</span></p>
+        <p className="break-all">Permanent ledger verification record maintained at <span className="font-mono">{certVerifyUrl}</span></p>
         <div className="pt-2">
           <Link href="/" className="underline hover:text-neutral-900 dark:hover:text-neutral-100">
             &larr; Return to NxtWave CCBP 4.0 Workshop

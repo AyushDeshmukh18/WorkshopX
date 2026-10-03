@@ -19,13 +19,13 @@ If my campaign spent ₹2,000 on broad acquisition to drive students into a pass
 
 ```mermaid
 flowchart LR
-    A[Campus Awareness] --> B[Personalized Blueprint]
-    B --> C[DPDP OTP Registration]
-    C --> D[Peer Referral Engine]
-    D --> E[Interactive Workshop]
-    E --> F[60-Min Project Build]
-    F --> G[Automated AI Evaluation]
-    G --> H[Verifiable Credential]
+    A["Campus Awareness"] --> B["Branch-Personalized Blueprint"]
+    B --> C["DPDP OTP Registration"]
+    C --> D["Peer Referral Engine"]
+    D --> E["Interactive Workshop Suite"]
+    E --> F["60-Min Real-Time Build"]
+    F --> G["Automated AI Evaluation"]
+    G --> H["Verifiable Credential & QR"]
     H --> D
 ```
 
@@ -61,15 +61,15 @@ My campaign targets **final-year (Class of 2026/2027) B.Tech/B.E. students** acr
 
 ```mermaid
 flowchart TD
-    A[Student Registers & Verifies OTP] --> B[Unique Referral Link & Code /r/CODE]
-    B --> C[1-Click Native Share: WhatsApp / LinkedIn / Telegram]
-    B --> D[Live Offline QR Code for College Labs]
-    C & D --> E[Peer Visits & Registers]
-    E --> F[Anti-Fraud Attribution Ledger]
-    F --> G{Milestone Check}
-    G -->|3 Referrals| H[Tier 1: FAANG SDE Toolkit Unlocked]
-    G -->|5 Referrals| I[Tier 2: 1-on-1 Mock Viva Unlocked]
-    G -->|10 Referrals| J[Tier 3: Campus Ambassador Badge]
+    A["Student Registers & Verifies OTP"] --> B["Unique Referral Link & Code /r/CODE"]
+    B --> C["1-Click Native Share: WhatsApp / LinkedIn / Telegram"]
+    B --> D["Live Offline QR Code for College Labs"]
+    C & D --> E["Peer Visits & Registers"]
+    E --> F["Anti-Fraud Attribution Ledger"]
+    F --> G{"Milestone Check"}
+    G -->|3 Referrals| H["Tier 1: FAANG SDE Toolkit Unlocked"]
+    G -->|5 Referrals| I["Tier 2: 1-on-1 Mock Viva Unlocked"]
+    G -->|10 Referrals| J["Tier 3: Campus Ambassador Badge"]
     H & I & J --> B
 ```
 
@@ -109,12 +109,12 @@ Standard webinars treat students as a captive audience listening to slides, resu
 
 ```mermaid
 flowchart LR
-    A[Live Room /live] --> B[Dev Setup Checklist]
-    B --> C[60-Min Roadmap Check-ins]
-    C --> D[Upvoted Technical Q&A]
-    D --> E[AI Placement Suite /tools]
-    E --> F[Vercel Live Deploy]
-    F --> G[Instant Evaluation /submit]
+    A["Live Room (/live)"] --> B["Dev Setup Checklist"]
+    B --> C["60-Min Roadmap Check-ins"]
+    C --> D["Upvoted Technical Q&A"]
+    D --> E["AI Placement Suite (/tools)"]
+    E --> F["Vercel Live Deploy"]
+    F --> G["Instant Evaluation (/submit)"]
 ```
 
 ### The Live Workshop Operating Suite (`/live`)
@@ -156,17 +156,17 @@ Automated AI evaluation solves this operational bottleneck. It enables instantan
 
 ```mermaid
 flowchart TD
-    A[Student Submits Repo URL & Live URL /submit] --> B[SSRF & URL Security Validator]
-    B -->|Passed| C[Multi-Tier Resilient Inference Pipeline]
-    B -->|Failed| D[Actionable Error: Insecure/Private URL Blocked]
-    C --> E[Tier 1: OpenRouter Gemini 3.8 Flash]
-    C -.->|Failover| F[Tier 2: Google Generative AI Direct SDK]
-    C -.->|Offline| G[Tier 3: Deterministic Rubric Baseline]
-    E --> H[100-Point Placement Rubric Evaluation]
-    H --> I[Executive Verdict & Tech Stack Detection]
-    H --> J[Strengths & Critical Vulnerabilities]
-    H --> K[Placement Viva Defense Simulator]
-    H --> L[Cryptographic PDF Certificate + QR /verify/ID]
+    A["Student Submits Repo URL & Live URL (/submit)"] --> B["SSRF & URL Security Validator"]
+    B -->|"Passed"| C["Multi-Tier Resilient Inference Pipeline"]
+    B -->|"Failed"| D["Actionable Error: Insecure/Private URL Blocked"]
+    C --> E["Tier 1: OpenRouter Gemini 3.8 Flash"]
+    C -.->|"Failover"| F["Tier 2: Google Generative AI Direct SDK"]
+    C -.->|"Offline"| G["Tier 3: Deterministic Rubric Baseline"]
+    E --> H["100-Point Placement Rubric Evaluation"]
+    H --> I["Executive Verdict & Tech Stack Detection"]
+    H --> J["Strengths & Critical Vulnerabilities"]
+    H --> K["Placement Viva Defense Simulator"]
+    H --> L["Cryptographic PDF Certificate & QR (/verify/:id)"]
 ```
 
 ### The Ingestion Pipeline & Defensive Security
@@ -215,9 +215,9 @@ Throughout this 48-hour build, I utilized AI tools (OpenRouter Gemini 3.8 Flash,
 
 ```mermaid
 flowchart LR
-    A[Day 1: Form Landing Page] -->|Bottleneck: High Drop-off| B[Day 3: Campus Captains & Referral Engine]
-    B -->|Bottleneck: Passive Webinar| C[Day 5: Interactive 60-Min Workshop Suite]
-    C -->|Bottleneck: Manual Grading| D[Day 7: Automated AI Rubric & Viva Simulator]
+    A["Day 1: Form Landing Page"] -->|"Bottleneck: High Drop-off"| B["Day 3: Campus Captains & Referral Engine"]
+    B -->|"Bottleneck: Passive Webinar"| C["Day 5: Interactive 60-Min Workshop Suite"]
+    C -->|"Bottleneck: Manual Grading"| D["Day 7: Automated AI Rubric & Viva Simulator"]
 ```
 
 1. **Phase 1 (The Landing Page):** Began with basic registration capturing student names and emails. Realized acquisition without engagement leads to 80% no-shows.

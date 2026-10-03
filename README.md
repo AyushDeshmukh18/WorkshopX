@@ -29,15 +29,26 @@ The **FirstBuild Engine** is not a simple static landing page; it is a **full-st
 Traditional free webinars lose 60–70% of registrants before show-time and 80% during the stream. This engine bridges the gap between top-of-funnel acquisition, interactive live coding, automated proof-of-work auditing, and viral peer-to-peer advocacy.
 
 ```mermaid
-flowchart LR
-    A[Campus Awareness] --> B[Branch-Personalized Blueprint]
-    B --> C[DPDP OTP Registration]
-    C --> D[Peer Referral Engine]
-    D --> E[Interactive Workshop Suite]
-    E --> F[60-Min Real-Time Build]
-    F --> G[Automated AI Evaluation]
-    G --> H[Verifiable Credential & QR]
-    H --> D
+flowchart TD
+    subgraph FunnelAcquisition["Phase 1: Acquisition & Personalization"]
+        A["Campus Awareness (College Outreach & Socials)"] --> B["Branch-Personalized AI Blueprint Generator"]
+        B --> C["DPDP 2023 Consent & Verified OTP Registration"]
+    end
+
+    subgraph ViralAdvocacy["Phase 2: Viral Growth Engine"]
+        C --> D["Peer Referral Engine (Unique Code & Dynamic QR)"]
+    end
+
+    subgraph WorkshopSuite["Phase 3: Live Engineering Experience"]
+        C --> E["Interactive Workshop Suite & Pre-Flight Checklist"]
+        E --> F["60-Minute Real-Time AI Project Build"]
+    end
+
+    subgraph VerificationEngine["Phase 4: Evaluation & Credentialing"]
+        F --> G["Automated AI Project Evaluation & Viva Defense"]
+        G --> H["Verifiable Credential & QR Trust Verification"]
+        H -.->|"Peer Shares Credential & Unlocks Milestones"| D
+    end
 ```
 
 ---
@@ -48,36 +59,36 @@ The application is structured as a resilient Next.js 16 modular monolith backed 
 
 ```mermaid
 graph TD
-    Client[Student Mobile / Desktop Browser] -->|HTTPS / Next.js 16 App Router| NextApp[Next.js Core Monolith]
-    Admin[Admin Growth Console] -->|Signed HTTP-Only Session JWT| NextApp
+    Client["Student Mobile / Desktop Client"] -->|"HTTPS / Next.js 16 App Router"| NextApp["Next.js Core Monolith"]
+    Admin["Admin Growth Console"] -->|"Signed HTTP-Only Session JWT"| NextApp
 
-    subgraph "Data, Security & Outbox Layer"
-        NextApp -->|Service Role Key| Postgres[(Supabase PostgreSQL)]
-        Postgres -->|RLS Deny-All by Default| RLS[Row-Level Security Enforcer]
-        Postgres -->|Atomic Function| SeatCap[register_student 500-Cap Lock]
-        Postgres -->|SKIP LOCKED| Outbox[(notifications Transactional Outbox)]
-        Postgres -->|Real-Time Attribution| RefLedger[(referrals Audit Ledger)]
+    subgraph DataSecurity["Data, Security & Outbox Layer"]
+        NextApp -->|"Service Role Key"| Postgres[("Supabase PostgreSQL")]
+        Postgres -->|"RLS Deny-All by Default"| RLS["Row-Level Security Enforcer"]
+        Postgres -->|"Atomic Function"| SeatCap["register_student 500-Cap Lock"]
+        Postgres -->|"SKIP LOCKED"| Outbox[("notifications Transactional Outbox")]
+        Postgres -->|"Real-Time Attribution"| RefLedger[("referrals Audit Ledger")]
     end
 
-    subgraph "Multi-Tier AI Inference Pipeline"
-        NextApp -->|Tier 1 Primary| OpenRouter[OpenRouter API: Gemini 3.8 Flash]
-        OpenRouter -.->|Timeout / Fallback| GeminiSDK[Google Generative AI SDK: Gemini 3.1 Flash]
-        GeminiSDK -.->|Fallback| GroqSDK[Groq SDK: Llama 3.3 70B]
-        GroqSDK -.->|Offline Mode| StaticLib[40+ Heuristic Blueprint Library]
+    subgraph InferencePipeline["Multi-Tier AI Inference Pipeline"]
+        NextApp -->|"Tier 1 Primary"| OpenRouter["OpenRouter API: Gemini 3.8 Flash"]
+        OpenRouter -.->|"Timeout / Fallback"| GeminiSDK["Google Generative AI SDK: Gemini 3.1 Flash"]
+        GeminiSDK -.->|"Fallback"| GroqSDK["Groq SDK: Llama 3.3 70B"]
+        GroqSDK -.->|"Offline Mode"| StaticLib["40+ Heuristic Blueprint Library"]
     end
 
-    subgraph "Orchestration & Heartbeat Schedulers"
-        GHA[GitHub Actions 5-Min Cron] -->|POST /api/cron/tick| NextApp
+    subgraph OutboxOrchestration["Orchestration & Heartbeat Schedulers"]
+        GHA["GitHub Actions 5-Min Cron"] -->|"POST /api/cron/tick"| NextApp
         NextApp --> Outbox
-        Outbox -->|Provider Adapter| Brevo[Brevo SMTP / API 300/day]
-        Outbox -.->|Quota Failover| Resend[Resend Secondary 100/day]
+        Outbox -->|"Provider Adapter"| Brevo["Brevo SMTP / API 300/day"]
+        Outbox -.->|"Quota Failover"| Resend["Resend Secondary 100/day"]
     end
 
-    subgraph "Proof-of-Work & Trust Layer"
-        NextApp -->|SSRF Protected| ExtDeploy[Public Deployed HTTPS URL]
-        NextApp -->|REST API| ExtGitHub[Public GitHub Repository]
-        NextApp -->|Vector PDF Kit| CertEngine[Certificate of Technical Mastery]
-        CertEngine -->|SHA-256 Ledger| QRVerify[/verify/[id] Public Verifier]
+    subgraph TrustVerification["Proof-of-Work & Trust Layer"]
+        NextApp -->|"SSRF Protected"| ExtDeploy["Public Deployed HTTPS URL"]
+        NextApp -->|"REST API"| ExtGitHub["Public GitHub Repository"]
+        NextApp -->|"Vector PDF Kit"| CertEngine["Certificate of Technical Mastery"]
+        CertEngine -->|"SHA-256 Ledger"| QRVerify["/verify/:id Public Verifier"]
     end
 ```
 
@@ -107,15 +118,15 @@ Located at [`/submit`](http://localhost:3000/submit) and powered by [`lib/evalua
 
 ```mermaid
 flowchart TD
-    A[Student Submits GitHub & Live URL] --> B[SSRF & URL Security Validator]
-    B -->|Passed| C[Multi-Tier LLM Evaluation Pipeline]
-    B -->|Blocked| D[Descriptive Error: Insecure/Private IP/Localhost]
-    C --> E[OpenRouter: google/gemini-3.8-flash]
-    E --> F[100-Point Placement Rubric Evaluation]
-    F --> G[Executive Technical Verdict]
-    F --> H[Key Strengths & Critical Vulnerabilities]
-    F --> I[Campus Placement Viva Defense Simulator]
-    F --> J[Vector PDF Certificate Generation with QR Verification]
+    A["Student Submits GitHub & Live URL"] --> B["SSRF & URL Security Validator"]
+    B -->|"Passed"| C["Multi-Tier LLM Evaluation Pipeline"]
+    B -->|"Blocked"| D["Descriptive Error: Insecure/Private IP/Localhost"]
+    C --> E["OpenRouter: google/gemini-3.8-flash"]
+    E --> F["100-Point Placement Rubric Evaluation"]
+    F --> G["Executive Technical Verdict"]
+    F --> H["Key Strengths & Critical Vulnerabilities"]
+    F --> I["Campus Placement Viva Defense Simulator"]
+    F --> J["Vector PDF Certificate Generation with QR Verification"]
 ```
 
 ### The 100-Point Placement Rubric
@@ -138,15 +149,16 @@ Located at [`/referrals`](http://localhost:3000/referrals), the referral engine 
 
 ```mermaid
 flowchart TD
-    A[Student Verifies OTP] --> B[Unique Referral Code Issued: FB8X91K2]
-    B --> C[1-Click Social Shares: WhatsApp, LinkedIn, Telegram]
-    B --> D[Live QR Code Modal for Offline Campus Labs]
-    C & D --> E[Peer Visits /r/CODE & Enters Flow]
-    E --> F[Anti-Fraud Attribution: Normalization & DPDP Check]
-    F --> G{Milestone Unlocked?}
-    G -->|3 Referrals| H[Tier 1: FAANG System Design Cheatsheet & Prompts]
-    G -->|5 Referrals| I[Tier 2: 1-on-1 Senior Tech Mock Viva & Priority Audit]
-    G -->|10 Referrals| J[Tier 3: Campus Tech Ambassador Badge & Drive Fast-Track]
+    A["Student Verifies OTP"] --> B["Unique Referral Code Issued: FB8X91K2"]
+    B --> C["1-Click Social Shares: WhatsApp, LinkedIn, Telegram"]
+    B --> D["Live QR Code Modal for Offline Campus Labs"]
+    C --> E["Peer Visits /r/CODE & Enters Flow"]
+    D --> E
+    E --> F["Anti-Fraud Attribution: Normalization & DPDP Check"]
+    F --> G{"Milestone Unlocked?"}
+    G -->|"3 Referrals"| H["Tier 1: FAANG System Design Cheatsheet & Prompts"]
+    G -->|"5 Referrals"| I["Tier 2: 1-on-1 Senior Tech Mock Viva & Priority Audit"]
+    G -->|"10 Referrals"| J["Tier 3: Campus Tech Ambassador Badge & Drive Fast-Track"]
 ```
 
 * **Anti-Fraud Security:** Self-referrals are blocked via normalized email matching (`email_normalized`), IP hash checks, and atomic database functions.

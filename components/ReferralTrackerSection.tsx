@@ -270,12 +270,12 @@ export default function ReferralTrackerSection({
               1-Click Viral Share:
             </span>
 
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-colors inline-flex items-center gap-1.5 shadow-sm"
+                className="flex-1 sm:flex-none justify-center px-3.5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-colors inline-flex items-center gap-1.5 shadow-sm min-h-[42px]"
               >
                 <span>WhatsApp Pitch</span>
               </a>
@@ -284,7 +284,7 @@ export default function ReferralTrackerSection({
                 href={linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3.5 py-2 rounded-lg bg-[#0077b5] hover:bg-[#006097] text-white font-semibold text-xs transition-colors inline-flex items-center gap-1.5 shadow-sm"
+                className="flex-1 sm:flex-none justify-center px-3.5 py-2.5 rounded-lg bg-[#0077b5] hover:bg-[#006097] text-white font-semibold text-xs transition-colors inline-flex items-center gap-1.5 shadow-sm min-h-[42px]"
               >
                 <span>LinkedIn Post</span>
               </a>
@@ -293,7 +293,7 @@ export default function ReferralTrackerSection({
                 href={telegramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3.5 py-2 rounded-lg bg-[#229ED9] hover:bg-[#1e8cc0] text-white font-semibold text-xs transition-colors inline-flex items-center gap-1.5 shadow-sm"
+                className="flex-1 sm:flex-none justify-center px-3.5 py-2.5 rounded-lg bg-[#229ED9] hover:bg-[#1e8cc0] text-white font-semibold text-xs transition-colors inline-flex items-center gap-1.5 shadow-sm min-h-[42px]"
               >
                 <span>Telegram</span>
               </a>
@@ -301,7 +301,7 @@ export default function ReferralTrackerSection({
               <button
                 type="button"
                 onClick={() => setShowQrModal(!showQrModal)}
-                className="px-3.5 py-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-200 border border-neutral-700 font-semibold text-xs transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+                className="w-full sm:w-auto justify-center px-3.5 py-2.5 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-200 border border-neutral-700 font-semibold text-xs transition-colors inline-flex items-center gap-1.5 cursor-pointer min-h-[42px]"
               >
                 <QrCode className="w-3.5 h-3.5" />
                 <span>Show QR Code</span>
@@ -311,7 +311,7 @@ export default function ReferralTrackerSection({
 
           {/* QR Code Modal Box */}
           {showQrModal && (
-            <div className="mb-8 p-6 rounded-xl bg-[#090d16] border border-neutral-700 text-center space-y-3 animate-in fade-in zoom-in-95 duration-150">
+            <div className="mb-8 p-4 sm:p-6 rounded-xl bg-[#090d16] border border-neutral-700 text-center space-y-3 animate-in fade-in zoom-in-95 duration-150 max-w-full overflow-hidden">
               <h4 className="text-sm font-bold text-white flex items-center justify-center gap-2">
                 <QrCode className="w-4 h-4 text-cyan-400" />
                 Scan to Join with {activeData.referral_code}
@@ -319,16 +319,16 @@ export default function ReferralTrackerSection({
               <p className="text-xs text-neutral-400 max-w-sm mx-auto">
                 Project this on classroom screens or print on hostel notice boards. Students scanning this automatically attribute referrals to you.
               </p>
-              <div className="inline-block p-4 bg-white rounded-xl shadow-xl">
+              <div className="inline-block p-3 sm:p-4 bg-white rounded-xl shadow-xl max-w-full">
                 <img
                   src={`https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(activeData.referral_link)}`}
                   alt="Referral QR Code"
-                  className="w-40 h-40 mx-auto"
+                  className="w-36 h-36 sm:w-40 sm:h-40 mx-auto"
                 />
               </div>
-              <div>
-                <span className="text-[11px] font-mono text-neutral-400">
-                  Target Link: <code className="text-cyan-300">{activeData.referral_link}</code>
+              <div className="max-w-full overflow-hidden px-2">
+                <span className="text-[11px] font-mono text-neutral-400 block break-all">
+                  Target Link: <code className="text-cyan-300 break-all">{activeData.referral_link}</code>
                 </span>
               </div>
             </div>
@@ -453,8 +453,8 @@ export default function ReferralTrackerSection({
                 No peer registrations recorded yet. Share your invite link to start unlocking milestone rewards!
               </p>
             ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs">
+              <div className="overflow-x-auto w-full pb-2 scrollbar-thin">
+                <table className="w-full text-left text-xs min-w-[440px]">
                   <thead>
                     <tr className="border-b border-neutral-800 text-neutral-500 font-mono text-[10px] uppercase">
                       <th className="pb-2">Referred Student</th>

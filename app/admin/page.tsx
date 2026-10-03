@@ -175,7 +175,7 @@ export default function AdminCommandCenter() {
         <h2 className="text-sm font-bold text-neutral-900 dark:text-neutral-100 mb-4 font-mono uppercase tracking-wider">
           Campaign Conversion Funnel
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-7 gap-3 text-center">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5 sm:gap-3 text-center">
           <div className="border border-[#e8e5de] dark:border-[#232833] p-3 rounded-md bg-[#fbfaf7] dark:bg-[#15181f]">
             <span className="text-[10px] font-mono text-neutral-500 uppercase block">1. PAGE VIEW</span>
             <span className="text-base sm:text-lg font-mono font-bold text-neutral-900 dark:text-neutral-100 mt-1 block">
@@ -232,7 +232,7 @@ export default function AdminCommandCenter() {
             <span className="text-[10px] font-mono text-neutral-400">Live Stage</span>
           </div>
 
-          <div className="border border-[#e8e5de] dark:border-[#232833] p-3 rounded-md bg-[#fbfaf7] dark:bg-[#15181f]">
+          <div className="col-span-2 sm:col-span-1 border border-[#e8e5de] dark:border-[#232833] p-3 rounded-md bg-[#fbfaf7] dark:bg-[#15181f]">
             <span className="text-[10px] font-mono text-neutral-500 uppercase block">7. CERTIFIED</span>
             <span className="text-base sm:text-lg font-mono font-bold text-neutral-900 dark:text-neutral-100 mt-1 block">
               {activeMetrics.certifiedCount}
